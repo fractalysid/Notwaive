@@ -147,7 +147,7 @@
        		default_layer {
 		bindings = <
 		&kp Q &kp W &kp F &kp P &kp B                                       &kp J &kp L  &kp U    &kp Y   &kp BKSP
-		&m_left LSHFT A &lt_left INTL R &kp S &kp T &kp G 			        &kp M &kp N &kp E &lt_right SYMS I &m_right LSHFT O
+		&m_left LSHFT A &kp R &kp S &lt_left INTL T &kp G 			        &kp M &lt_right SYMS N &kp E &kp I &m_right LSHFT O
 		&kp Z &m_left LCTRL X &m_left LALT C &m_left LGUI D &kp V		    &kp K &m_right LGUI H  &m_right LALT CMMA &m_right LCTRL DOT &kp IT_SQUOT
           	                        &qlt NUM_SYMS RET &none &none  		    &none &none &lt UTILITY SPC
 		>;

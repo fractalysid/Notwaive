@@ -12,12 +12,13 @@ A sample bash script to compile the firmware is provided, compile_example.sh. Re
 ## Goals
 Twive Simplified was designed with the italian language in mind. NoTwive, aka Twive International,
 wants to be a good base layout for any language. At the cost of having 2 layers accessible
-through the bottom pinky keys, this layer fixes every drawback encountered in Twive Simplified.
+through the home row, this layer fixes every drawback encountered in Twive Simplified.
 
 ## Design principles and differences with Twive Simplified
-- 2 layers accessible through Z and ' (bottom pinky keys)
+- 2 layers accessible through the home row
 - A layer for international keys. It should fit almost every common european language
-- A layer with numbers, operators, ',', '.' and other common operators used in programming languages
+- A layer with numbers, operators, ',', '.' and other common symbols used in programming languages
+- As I prefer using the one shot modifiers in the Utility layer, I'm keeping the modifiers in the bottom row and shift in the home row
 
 ### Details about layers and modifiers triggering
 - Modifiers: Positional hold-tap, "tap-preferred" with 160ms tapping term
