@@ -1,0 +1,191 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "./boards/shields/lucy/italian.keycodes"
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/bt.h>
+
+// Base Colemak-DH layer
+#define DEFAULT                 0
+
+// Utility and navigation keys are here
+#define UTILITY                 1
+
+// Symbols and accented letters
+#define SYMBOLS                 2
+
+// Numbers on the left, functions on the right and only 3 keys for media
+#define NUM_FN_MEDIA            3
+
+// Accessed from NUM_FN_MEDIA through the top pinkies
+#define KEYBOARD                4
+
+// Qwerty layer in case I would like to use the keyboard for gaming
+#define QWERTY                  5
+
+&mt {
+    //tapping-term-ms = <300>;
+    //quick_tap_ms = <0>;
+    //flavor = "tap-preferred";
+    //retro-tap;
+};
+
+// configure the sticky layer behavior
+&sl {
+    release-after-ms = <3000>;
+};
+
+/ {
+
+    combos {
+        compatible = "zmk,combos";
+
+        // Activate the KEYBOARD layer for only one key press
+        combo_goto_keyboard {
+            timeout-ms = <75>;
+            layers= <NUM_FN_MEDIA>;
+            key-positions = <0 9>;
+            bindings = <&sl KEYBOARD>;
+        };
+
+        // Get back to default layer by pressing both thumb keys
+        combo_escape_qwerty {
+            timeout-ms = <50>;
+            layers= <QWERTY>;
+            key-positions = <30 35>;
+            bindings = <&to DEFAULT>;
+        };
+
+        combo_emergency_back_to_default {
+            timeout-ms = <30>;
+            key-positions = <10 19 20 29>;
+            bindings = <&to DEFAULT>;
+        };
+   };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
+
+    behaviors {
+
+        // Behaviors for mods in the bottom row
+        m_left: mods_left {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MODS_LEFT";
+            #binding-cells = <2>;
+            //flavor = "tap-unless-interrupted";
+            flavor = "tap-preferred";
+            tapping-term-ms = <175>;    // 200
+            quick-tap-ms = <125>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29>;    // <---[[right-hand keys]]
+        };
+
+        m_right: right_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MODS_RIGHT";
+            #binding-cells = <2>;
+            //flavor = "tap-unless-interrupted";
+            flavor = "tap-preferred";
+            tapping-term-ms = <175>;    // 200
+            quick-tap-ms = <125>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24>;    // <---[[left-hand keys]]
+       };
+
+    // Layer on left thumb is for quick access to symbols used while typing so I need a shorter window for triggering
+    // the hold behavior. This is possible as RETURN is not used in the middle of something. Balanced behavior is perfect here
+    ltt: left_thumb_toggle {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LEFT_LAYER_TOGGLE";
+            #binding-cells = <2>;
+            tapping-term-ms = <125>;    // 150
+            quick-tap-ms = <0>;
+            flavor = "balanced";
+            bindings = <&mo>, <&kp>;
+       };
+    };
+
+// RIGHT NOW IT IS MEANT TO BE USED WITH THE ITALIAN QWERTY LAYOUT
+
+        keymap {
+                compatible = "zmk,keymap";
+
+//  DEFAULT-DH
+       		default_layer {
+		bindings = <
+		&kp Q &kp W &kp F &kp P &kp B                                               &kp J &kp L  &kp U    &kp Y   &kp BKSP
+		&m_left LSHFT A &kp R &kp S &kp T &kp G 			                        &kp M &kp N &kp E &kp I &m_right LSHFT O
+		&m_left LSHFT Z &m_left LCTRL X &m_left LALT C &m_left LGUI D &kp V		    &kp K &m_right LGUI H  &m_right LALT CMMA &m_right LCTRL DOT &m_right LSHFT IT_SQUOT
+          	                                   &ltt SYMBOLS RET &none &none  		&none &none &lt UTILITY SPC
+		>;
+		};
+
+// UTILITY LAYER
+// Back and Forward omitted
+// Ctrl+Shift+Tab is duplicated
+		    utility_layer {
+		bindings = <
+		&kp ESC &kp PRINTSCREEN &caps_word &kp CAPS &kp INSERT          &kp HOME &kp END &kp PAGE_UP &kp PAGE_DOWN &kp DEL
+		&kp TAB &sk LALT &sk LCTRL &sk LSHIFT &kp LGUI                 	&kp LC(LS(TAB)) &kp LEFT &kp UP &kp DOWN &kp RIGHT
+		&kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LC(LS(Z))           &kp LA(TAB) &kp LC(LS(TAB)) &kp LC(LA(UP)) &kp LC(LA(DOWN)) &kp LC(TAB)
+					                     &trans &trans &trans           &trans &trans &none
+		>;
+		};
+
+// SYMBOLS LAYER
+// A few symbols are missing: ° (grade), £ (pound)
+            symbols_layer {
+		bindings = <
+		&kp IT_EXCL &kp IT_DQUOT &kp IT_UGRV &kp IT_AND  &kp IT_CARET           &kp IT_BSLH &kp IT_LBKT &kp IT_RBKT &kp IT_QUES &kp LC(BKSP)
+		&kp IT_IGRV &kp IT_AGRV &kp IT_OGRV &kp IT_EGRV &kp IT_EACU             &kp IT_USD &kp IT_LPAR &kp IT_RPAR &kp IT_LBRC &kp IT_RBRC
+		&kp IT_PERC &kp IT_EUR &kp IT_HASH &kp IT_AT &kp IT_TILDE               &kp IT_BKTK &kp IT_LESS &kp IT_GREAT &kp IT_PIPE &kp IT_UNDER
+					                             &none &trans &trans            &trans &trans &trans
+		>;
+		};
+
+// NUMBERS, FUNCTIONS AND MEDIA KEYS
+// Only play/pause and volume control fit in this layout
+// TODO: consider the idea of using combos to access other media keys (eg: F7+F8, F4+F5, ...)
+		    num_fn_media_layer {
+		bindings = <
+		&kp IT_FSLH &kp N7 &kp N8 &kp N9 &kp IT_PLUS                            &kp K_VOLUME_UP &kp F7 &kp F8 &kp F9 &kp F10
+        &kp N0 &kp N1 &kp N2 &kp N3 &kp IT_MINUS                                &kp K_PLAY_PAUSE &kp F4 &kp F5 &kp F6 &kp F11
+        &kp IT_AST &kp N4 &kp N5 &kp N6 &kp IT_EQL                              &kp K_VOLUME_DOWN &kp F1 &kp F2 &kp F3 &kp F12
+                               &none &trans &trans                             &trans &trans &none
+		>;
+		};
+
+// KEYBOARD LAYER
+		    keyboard_layer {
+		bindings = <
+		&reset  &bootloader &none &none &out OUT_USB 			        &out OUT_BLE &none   &none   &bootloader  &reset
+		&none &none &bt BT_PRV &bt BT_NXT &bt BT_CLR  			        &to QWERTY &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3
+		&none  &none &none &none &bt BT_CLR   				            &none &none &none &none &bt BT_SEL 4
+				            	&trans &trans &trans  					&trans &trans &trans
+		>;
+		};
+
+//  QWERTY, mainly for gaming or letting others try the keyboard
+       		qwerty_layer {
+		bindings = <
+		&kp Q &kp W &kp E &kp R  &kp T 						&kp Y &kp U  &kp I &kp O &kp P
+		&kp A &kp S &kp D &kp F &kp G 			        	&kp H &kp J &kp K &kp L &kp BKSP
+		&kp Z &kp X &kp C &kp V &kp B				        &kp M &kp N &kp CMMA &kp DOT &mt LSHFT IT_MINUS
+          				&kp SPC &none &none   		        &none &none &kp RET
+		>;
+		};
+
+	};
+};
