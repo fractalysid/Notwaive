@@ -21,7 +21,7 @@
 
 #define INTL                    4
 
-#define FN_MEDIA               5
+#define FN_MEDIA                5
 
 #define KEYBOARD                6
 
@@ -79,9 +79,9 @@
 
         lt_left: layer_toggle_left {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_LAYERS_LEFT";
+            label = "LAYER_TOGGLE_LEFT";
             #binding-cells = <2>;
-            tapping-term-ms = <160>;
+            tapping-term-ms = <175>;
             quick_tap_ms = <80>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&kp>;
@@ -90,9 +90,9 @@
 
         lt_right: layer_toggle_right {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_LAYERS_RIGHT";
+            label = "LAYER_TOGGLE_RIGHT";
             #binding-cells = <2>;
-            tapping-term-ms = <160>;
+            tapping-term-ms = <175>;
             quick_tap_ms = <80>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&kp>;
@@ -143,7 +143,7 @@
         keymap {
                 compatible = "zmk,keymap";
 
-//  DEFAULT-DH
+//  0 - DEFAULT
        		default_layer {
 		bindings = <
 		&kp Q &kp W &kp F &kp P &kp B                                               &kp J &kp L  &kp U    &kp Y   &kp BKSP
@@ -153,9 +153,7 @@
 		>;
 		};
 
-// UTILITY LAYER
-// Back and Forward omitted
-// Ctrl+Shift+Tab is duplicated
+// 1 - UTILITY LAYER
 		    utility_layer {
 		bindings = <
 		&kp ESC &kp PRINTSCREEN &caps_word &kp CAPS &kp INSERT          &kp HOME &kp END &kp PAGE_UP &kp PAGE_DOWN &kp DEL
@@ -165,7 +163,7 @@
 		>;
 		};
 
-// NUMBERS AND SYMBOLS LAYER
+// 2 - NUMBERS AND SYMBOLS LAYER
             numbers_symbols_layer {
 		bindings = <
 		&kp IT_EXCL &kp N7 &kp N8 &kp N9  &kp IT_AND           &kp IT_HASH &kp IT_LESS &kp IT_GREAT &kp IT_CARET &kp LC(BKSP)
@@ -176,18 +174,18 @@
 		};
 
 
-// SYMBOLS LAYER
+// 3 - SYMBOLS LAYER
             symbols_layer {
 		bindings = <
-		&none &kp IT_PND &kp IT_LBKT &kp IT_RBKT  &kp IT_BKTK           &none &none &none &none &trans
-		&none &kp IT_USD &kp IT_LPAR &kp IT_RPAR &KP IT_DEGREE          &none &none &none &none &none
+		&none &kp IT_PND &kp IT_LBKT &kp IT_RBKT &kp IT_BKTK            &none &none &none &none &none
+		&none &kp IT_USD &kp IT_LPAR &kp IT_RPAR &kp IT_DEGREE          &none &none &none &none &none
 		&none &kp IT_EUR &kp IT_LBRC &kp IT_RBRC &none                  &none &none &none &none &none
 					               &trans &trans &trans                 &trans &trans &trans
 		>;
 		};
 
-// INTERNATIONAL LAYER
-            symbols_layer {
+// 4 - INTERNATIONAL LAYER
+            international_layer {
 		bindings = <
 		&none &none &none &none &none           &none &none &kp IT_UGRV &none &trans
 		&none &none &none &none &none           &kp IT_EACU &kp IT_EGRV &kp IT_OGRV &kp IT_AGRV &kp IT_IGRV
@@ -196,7 +194,7 @@
 		>;
 		};
 
-// NUMBERS, FUNCTIONS AND MEDIA KEYS
+// 5 - FUNCTIONS AND MEDIA KEYS
 		    fn_media_layer {
 		bindings = <
 		&none &none &kp C_BRI_INC &kp K_VOL_UP &none                           &none &kp F7 &kp F8 &kp F9 &kp F10
@@ -206,7 +204,7 @@
 		>;
 		};
 
-// KEYBOARD LAYER
+// 6 - KEYBOARD LAYER
 		    keyboard_layer {
 		bindings = <
 		&reset  &bootloader &none &none &out OUT_USB 			        &out OUT_BLE &none   &none   &bootloader  &reset
