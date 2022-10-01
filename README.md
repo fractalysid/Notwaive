@@ -1,5 +1,5 @@
 # NoTwive (previously Twive International)
-Based on [Twive](https://github.com/fractalysid/Twive_Simplified). Read Twive README for more info.
+Based on [Twive Simplified](https://github.com/fractalysid/Twive Simplified). Read Twive README for more info.
 
 Well, this could no longer be referred to as Twive, so NoTwive should do the trick.
 
@@ -10,9 +10,9 @@ A sample bash script to compile the firmware is provided, compile_example.sh. Re
 [Here](https://github.com/fractalysid/qmk_firmware) you can find my fork of [QMK](https://github.com/qmk/qmk_firmware) with the layout for the ferris sweep (it is a modified version where the keys in the right half are in reverse order). You can also find the keymap.json in the QMK directory.
 
 ## Goals
-Twive_Simplified was designed with the italian language in mind. NoTwive, aka Twive International,
+Twive Simplified was designed with the italian language in mind. NoTwive, aka Twive International,
 wants to be a good base layout for any language. At the cost of having 2 layers accessible
-through the bottom pinky keys, this layer fixes every drawback encountered in Twive_Simplified.
+through the bottom pinky keys, this layer fixes every drawback encountered in Twive Simplified.
 
 ## Design principles and differences with Twive Simplified
 - 2 layers accessible through Z and ' (bottom pinky keys)
