@@ -1,5 +1,5 @@
 # NoTwive (previously Twive International)
-Based on [Twive Simplified](https://github.com/fractalysid/Twive Simplified). Read Twive README for more info.
+Based on [Twive Simplified](https://github.com/fractalysid/Twive_Simplified). Read Twive README for more info.
 
 Well, this could no longer be referred to as Twive, so NoTwive should do the trick.
 
