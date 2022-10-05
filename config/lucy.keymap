@@ -167,7 +167,7 @@
             numbers_symbols_layer {
 		bindings = <
 		&kp IT_EXCL &kp N7 &kp N8 &kp N9  &kp IT_AND           &kp IT_HASH &kp IT_LESS &kp IT_GREAT &kp IT_AST &kp LC(BKSP)
-		&kp N0 &kp N1 &kp N2 &kp N3 &kp IT_PIPE                &kp IT_AT &kp IT_PLUS &kp IT_EQL &kp IT_FSLH &kp IT_MINUS
+		&kp N0 &kp N1 &kp N2 &kp N3 &kp IT_PIPE                &kp IT_AT &kp IT_EQL &kp IT_FSLH &kp IT_PLUS &kp IT_MINUS
 		&kp IT_PERC &kp N4 &kp N5 &kp N6 &kp IT_TILDE          &kp IT_BSLH &kp IT_DQUOT &trans &trans &kp IT_UNDER
 					              &none &trans &trans          &trans &trans &trans
 		>;
