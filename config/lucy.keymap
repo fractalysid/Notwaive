@@ -157,8 +157,8 @@
 		    utility_layer {
 		bindings = <
 		&kp ESC &kp PRINTSCREEN &caps_word &kp CAPS &kp INSERT          &kp HOME &kp END &kp PAGE_UP &kp PAGE_DOWN &kp DEL
-		&kp TAB &sk LALT &sk LCTRL &sk LSHIFT &kp K_BACK                &kp K_FORWARD &kp LEFT &kp UP &kp DOWN &kp RIGHT
-		&kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LC(LS(Z))           &kp LA(TAB) &kp LC(LS(TAB)) &kp LC(LA(UP)) &kp LC(LA(DOWN)) &kp LC(TAB)
+		&kp TAB &sk LALT &sk LCTRL &sk LSHIFT &kp LC(LA(LEFT))          &kp LC(LA(RIGHT)) &kp LEFT &kp UP &kp DOWN &kp RIGHT
+		&kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LC(LS(Z))           &kp LC(LS(TAB)) &kp LA(TAB) &kp LC(LA(UP)) &kp LC(LA(DOWN)) &kp LC(TAB)
 					                     &trans &trans &trans           &trans &trans &none
 		>;
 		};
