@@ -166,10 +166,10 @@
 // 2 - NUMBERS AND SYMBOLS LAYER
             numbers_symbols_layer {
 		bindings = <
-		&kp IT_EXCL &kp N7 &kp N8 &kp N9  &kp IT_AND           &kp IT_HASH &kp IT_LESS &kp IT_GREAT &kp IT_AST &kp LC(BKSP)
-		&kp N0 &kp N1 &kp N2 &kp N3 &kp IT_PIPE                &kp IT_AT &kp IT_EQL &kp IT_FSLH &kp IT_PLUS &kp IT_MINUS
-		&kp IT_PERC &kp N4 &kp N5 &kp N6 &kp IT_TILDE          &kp IT_BSLH &kp IT_DQUOT &trans &trans &kp IT_UNDER
-					              &none &trans &trans          &trans &trans &trans
+		&kp IT_EXCL &kp N7 &kp N8 &kp N9  &kp IT_LBKT         &kp IT_RBKT &kp IT_LESS &kp IT_AST &kp IT_DQUOT &kp LC(BKSP)
+		&kp N0 &kp N1 &kp N2 &kp N3       &kp IT_LPAR         &kp IT_RPAR &kp IT_EQL &kp IT_FSLH &kp IT_PLUS &kp IT_MINUS
+		&kp IT_PERC &kp N4 &kp N5 &kp N6  &kp IT_LBRC         &kp IT_RBRC &kp IT_GREAT &trans &trans &kp IT_UNDER
+					              &none &trans &trans         &trans &trans &trans
 		>;
 		};
 
@@ -177,10 +177,10 @@
 // 3 - SYMBOLS LAYER
             symbols_layer {
 		bindings = <
-		&none &kp IT_PND &kp IT_LBKT &kp IT_RBKT &kp IT_CARET           &none &none &none &none &none
-		&none &kp IT_USD &kp IT_LPAR &kp IT_RPAR &kp IT_DEGREE          &none &none &none &none &none
-		&none &kp IT_EUR &kp IT_LBRC &kp IT_RBRC &kp IT_BKTK            &none &none &none &none &none
-					                     &trans &trans &trans           &trans &trans &trans
+		&kp IT_CARET &kp IT_DEGREE &kp IT_BKTK &none &none            &none &none &none &none &none
+		&none &none &none &none &none                                 &none &none &none &none &none
+		&none &none &none &none &none                                 &none &none &none &none &none
+					                  &trans &trans &trans            &trans &trans &trans
 		>;
 		};
 
@@ -197,10 +197,10 @@
 // 5 - FUNCTIONS AND MEDIA KEYS
 		    fn_media_layer {
 		bindings = <
-		&none &none &kp C_BRI_INC &kp K_VOL_UP &none                           &none &kp F7 &kp F8 &kp F9 &kp F10
-        &kp K_STOP2 &kp K_PREV &kp K_NEXT &kp K_PLAY_PAUSE &kp K_MUTE          &none &kp F4 &kp F5 &kp F6 &kp F11
-        &none &none &kp C_BRI_DEC &kp K_VOL_DN &none                           &none &kp F1 &kp F2 &kp F3 &kp F12
-                               &none &trans &trans                             &trans &trans &none
+		&kp IT_PIPE &kp IT_AND &kp IT_AT &kp IT_HASH &kp IT_BSLH                 &kp IT_PND &kp F7 &kp F8 &kp F9 &kp F10
+        &kp K_STOP2 &kp K_PREV &kp K_NEXT &kp K_PLAY_PAUSE &kp IT_TILDE          &kp IT_USD &kp F4 &kp F5 &kp F6 &kp F11
+        &kp C_BRI_DEC &kp C_BRI_INC &kp K_VOL_DN &kp K_VOL_UP &kp K_MUTE         &kp IT_EUR &kp F1 &kp F2 &kp F3 &kp F12
+                                                     &none &trans &trans         &trans &trans &none
 		>;
 		};
 
